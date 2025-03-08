@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_seo_meta_tags",
+  "info": {
+    "displayName": "Meta_Tags"
+  },
+  "options": {},
+  "attributes": {
+    "Meta_Title": {
+      "type": "string"
+    },
+    "Meta_Description": {
+      "type": "text"
+    },
+    "Meta_Keywords": {
+      "type": "string"
+    },
+    "OpenGraph_Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
