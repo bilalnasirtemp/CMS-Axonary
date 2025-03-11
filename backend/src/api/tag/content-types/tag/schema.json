@@ -4,18 +4,21 @@
   "info": {
     "singularName": "tag",
     "pluralName": "tags",
-    "displayName": "Tag"
+    "displayName": "Tag",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Slug": {
       "type": "uid",
-      "targetField": "Name"
+      "targetField": "Name",
+      "required": true
     },
     "Posts": {
       "type": "relation",

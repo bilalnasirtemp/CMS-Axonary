@@ -1,28 +1,33 @@
 {
   "collectionName": "components_seo_meta_tags",
   "info": {
-    "displayName": "Meta_Tags"
+    "displayName": "Meta_Tags",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "Meta_Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Meta_Description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Meta_Keywords": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "OpenGraph_Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

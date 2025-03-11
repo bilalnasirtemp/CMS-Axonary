@@ -12,19 +12,22 @@
   },
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Content": {
-      "type": "blocks"
+      "type": "blocks",
+      "required": true
     },
     "Slug": {
       "type": "uid",
-      "targetField": "Title"
+      "targetField": "Title",
+      "required": true
     },
     "Image": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -32,30 +35,21 @@
         "audios"
       ]
     },
-    "Excerpt": {
-      "type": "text"
+    "Teaser": {
+      "type": "text",
+      "required": true
     },
     "Post_Status": {
       "type": "enumeration",
       "enum": [
         "draft",
         "published"
-      ]
+      ],
+      "required": true
     },
     "Publish_Date": {
-      "type": "datetime"
-    },
-    "post": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::post.post",
-      "inversedBy": "Author"
-    },
-    "Author": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::post.post",
-      "mappedBy": "post"
+      "type": "date",
+      "required": true
     },
     "categories": {
       "type": "relation",

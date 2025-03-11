@@ -12,14 +12,17 @@
   },
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Slug": {
       "type": "uid",
-      "targetField": "Name"
+      "targetField": "Name",
+      "required": true
     },
     "Description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "Posts": {
       "type": "relation",

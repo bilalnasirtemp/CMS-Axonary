@@ -384,17 +384,17 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
+    Description: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     Posts: Schema.Attribute.Relation<'manyToMany', 'api::post.post'>;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Name'>;
+    Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -413,27 +413,27 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Author: Schema.Attribute.Relation<'oneToOne', 'api::post.post'>;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
     >;
-    Content: Schema.Attribute.Blocks;
+    Content: Schema.Attribute.Blocks & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Excerpt: Schema.Attribute.Text;
-    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::post.post'> &
       Schema.Attribute.Private;
-    post: Schema.Attribute.Relation<'oneToOne', 'api::post.post'>;
-    Post_Status: Schema.Attribute.Enumeration<['draft', 'published']>;
-    Publish_Date: Schema.Attribute.DateTime;
+    Post_Status: Schema.Attribute.Enumeration<['draft', 'published']> &
+      Schema.Attribute.Required;
+    Publish_Date: Schema.Attribute.Date & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Title'>;
+    Slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
-    Title: Schema.Attribute.String;
+    Teaser: Schema.Attribute.Text & Schema.Attribute.Required;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -443,6 +443,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
 export interface ApiTagTag extends Struct.CollectionTypeSchema {
   collectionName: 'tags';
   info: {
+    description: '';
     displayName: 'Tag';
     pluralName: 'tags';
     singularName: 'tag';
@@ -457,10 +458,10 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
     Posts: Schema.Attribute.Relation<'manyToMany', 'api::post.post'>;
     publishedAt: Schema.Attribute.DateTime;
-    Slug: Schema.Attribute.UID<'Name'>;
+    Slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
